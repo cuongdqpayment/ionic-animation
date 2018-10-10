@@ -73,7 +73,7 @@ export class HomePage {
         duration: 1000,
         position: 'middle'
       }).present();
-      this.isShowCenter = true;
+      this.isShowCenter = false;
     }
   }
 
