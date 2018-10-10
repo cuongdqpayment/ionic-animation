@@ -1,0 +1,7 @@
+{
+  "name": "ionic-animation",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
