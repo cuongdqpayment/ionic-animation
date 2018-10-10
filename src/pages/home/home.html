@@ -1,14 +1,67 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+<ion-header *ngIf="isShowHeader">
+  <ion-toolbar color="primary">
+    <ion-item class="input-item" *ngIf="isShowSearch">
+      
+      <button ion-button clear color="dark" type="button" item-left (click)="showCenterMode(1)">
+        <ion-icon name="pin" class="icon-blue icon-size-small"></ion-icon>
+      </button>
+
+      <ion-input type="text" placeholder="Tìm theo địa chỉ" [(ngModel)]=searchOrigin (keyup.enter)="searchEnter(1)"></ion-input>
+
+      <button ion-button clear color="dark" type="button" item-right (click)="showSearchMode(1)" *ngIf="searchOrigin!=''">
+        <ion-icon name="return-left" class="icon-blue icon-size-small"> </ion-icon>
+      </button>
+    </ion-item>
+    <ion-item class="input-item" *ngIf="isShowSearch&&isShowRoute">
+      
+      <button ion-button clear color="dark" type="button" item-left (click)="showCenterMode(2)" >
+        <ion-icon name="pin" class="icon-red icon-size-small"></ion-icon>
+      </button>
+      
+      <ion-input type="text" placeholder="Địa chỉ điểm đến" [(ngModel)]=searchDestination (keyup.enter)="searchEnter(2)"></ion-input>
+      
+      <button ion-button clear color="dark" type="button" item-right (click)="showSearchMode(2)" *ngIf="searchDestination!=''">
+        <ion-icon name="globe" class="icon-red icon-size-small"> </ion-icon>
+      </button>
+    </ion-item>
+  </ion-toolbar>
+  
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <div #map id="map">
+    <h2>Chờ load bản đồ tại đây</h2>
+  </div>
+  <button ion-button tooltip="Đây là một kiểu tooltip phía dưới của nút bấm" positionV="bottom" arrow>
+    Rê chuột vào đây nó nỗi lên tip hướng dẫn
+  </button>
+
+  <ion-icon name="pin" [ngClass]="className" *ngIf="isShowCenter"></ion-icon>
+  <!--chum nut dieu khien phia trai ben duoi-->
+  <ion-fab right bottom auto-close-on-click-outside>
+    <button ion-fab mini color="primary">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button large color="primary" ion-fab (click)="showSearchbar()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button large color="primary" ion-fab (click)="showRoutebar()">
+        <ion-icon name="git-compare"></ion-icon>
+      </button>
+      <button color="primary" ion-fab (click)="showCurrentLocation()">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+      <button color="primary" ion-fab (click)="resetMap()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary" *ngIf="isShowFooter">
+
+  </ion-toolbar>
+</ion-footer>

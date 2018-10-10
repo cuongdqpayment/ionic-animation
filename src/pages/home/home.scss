@@ -1,3 +1,38 @@
 page-home {
+	#map {
+        height: 100%;
+        width: 100%;
+		}
+		
+	.toast-container{
+			background-color: red !important;
+		}
+	
+	.input-item{
+		border-radius: 2em !important;
+		opacity: 0.7;
+		font-size: 0.9em;
 
+    }
+    
+    .icon-center{
+        position: absolute;
+		top: 48%;  //vi tri trung tam
+		left: 50%; //vi tri trung tam
+		transform: translate(-50%, -52%); //vi tri trung tam so voi le phai va day
+		font-size: 30px; //kich co cua icon
+    }
+
+    .icon-size-small{
+        font-size: 15px; //kich co cua icon
+    }
+
+	.icon-blue{
+        color: #290dc7; //mau cua icon
+	}
+
+	.icon-red {
+		color: #f30b0b; //mau cua icon
+    }
+    
 }
