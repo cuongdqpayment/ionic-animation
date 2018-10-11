@@ -10,7 +10,7 @@ export class HomePage {
   isShowSearch: boolean = false;
   isShowRoute: boolean = false;
   isShowCenter: boolean = false;
-  isShowFooter: boolean = false;
+  isShowFooter: boolean = true;
 
   searchOrigin: string = "";
   searchDestination: string = "";
